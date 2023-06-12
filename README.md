@@ -1,1 +1,3 @@
-# Model Z: A Coaxial bi-copter from scratch
+# Model Z: Futuristic drone from scratch
+
+In the works..
