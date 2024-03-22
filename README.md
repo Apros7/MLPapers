@@ -1,3 +1,2 @@
-# Model Z: Futuristic drone from scratch
-
-In the works..
+# Random project
+Just me learning random stuff
