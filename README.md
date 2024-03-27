@@ -1,2 +1,4 @@
-# Random project
-Just me learning random stuff
+# MLPapers
+My implementation of various MLPapers to 1) fully understand the idea behind them and 2) potentially help others use new MLPapers.
+
+- [AttentionIsAllYouNeed](https://arxiv.org/pdf/1706.03762.pdf): Implementation of Transfermers in [Tinygrad](https://github.com/tinygrad/tinygrad/tree/master)
