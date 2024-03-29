@@ -9,23 +9,19 @@ class Base:
         for i, layer in enumerate(self.layers): x = layer(x).tanh() if i != len(self.layers) - 1 else layer(x)
         return x
 
-class Encoder(Base):
-    def __init__(self) -> None:
-        super().__init__()
-
-    def __call__(self):
-        pass
-
-class Decoder(Base):
-    def __init__(self) -> None:
-        super().__init__()
-    
-    def __call__(self):
-        pass
-
 class AutoEncoder:
     def __init__(self, layers):
         self.encoder = Base(layers)
         self.decoder = Base(list(reversed(layers)))
     def __call__(self, x):
         return self.decoder(self.encoder(x))
+
+class AutoEncoderLoss():
+    def __init__(self, L1_regularization: float = None, contrastive_regularization: float = None):
+        self.l1_lambda = L1_regularization # L1 sparcity regularization
+        self.l2_lambda = contrastive_regularization # L2 constrastive 
+
+    
+    def __call__(self, x, y, autoencoder: AutoEncoder = None):
+        l1_lambda = None if autoencoder is None else self.l1_lambda
+        return ((x - y)**2).sum(axis=1).sum(axis=0)
