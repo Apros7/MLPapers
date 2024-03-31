@@ -23,5 +23,7 @@ class AutoEncoderLoss():
 
     
     def __call__(self, x, y, autoencoder: AutoEncoder = None):
+        total = ((x - y)**2).sum(axis=1).sum(axis=0)
         l1_lambda = None if autoencoder is None else self.l1_lambda
-        return ((x - y)**2).sum(axis=1).sum(axis=0)
+        total += l1_lambda * 1 if l1_lambda is not None else 0 # still missing something here
+        return total
