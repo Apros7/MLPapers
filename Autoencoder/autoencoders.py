@@ -1,4 +1,3 @@
-from tinygrad import Tensor
 import tinygrad.nn as nn
 
 class Base:
@@ -20,7 +19,6 @@ class AutoEncoderLoss():
     def __init__(self, L1_regularization: float = None, contrastive_regularization: float = None):
         self.l1_lambda = L1_regularization # L1 sparcity regularization
         self.l2_lambda = contrastive_regularization # L2 constrastive 
-
     
     def __call__(self, x, y, autoencoder: AutoEncoder = None):
         total = ((x - y)**2).sum(axis=1).sum(axis=0)
